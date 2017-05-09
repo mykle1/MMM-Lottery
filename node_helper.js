@@ -18,17 +18,20 @@ module.exports = NodeHelper.create({
             method: 'GET'
         }, (error, response, body) => {
             if (!error && response.statusCode == 200) {
-                var result = JSON.parse(body)[0];
-                //console.log(result);
-                this.sendSocketNotification('LOTTERY_RESULT', result);
+                results = JSON.parse(JSON.stringify(body));
+                stringy = JSON.stringify(results);
+                str = stringy.replace(/"/g, '');
+                newNumber = str.replace(/\\n/g, ', ');
+                var last = newNumber.slice(0, -2);
+                var test = Array.from(last);
+                var result = last;
+                this.sendSocketNotification('LOTTERY_RESULT', {numbers: result});
             }
         });
     },
 
 
-    getDate: function() {
-        return (new Date()).toLocaleDateString();
-    },
+    
 
     //Subclass socketNotificationReceived received.
     socketNotificationReceived: function(notification, payload) {
