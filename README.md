@@ -1,5 +1,5 @@
 # MMM-Lottery
-A MagicMirror module that gives you lottery numbers ranging from 0 to 59, coinciding with US Powerball numbers. 
+Randomly generated lottery numbers coinciding with US Powerball numbers. 
 
 ## Examples
 
