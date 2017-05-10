@@ -44,3 +44,8 @@ With no header and colored numbers aligned to the right
 | `updateInterval` | `5*60*1000` | 5 minutes. |
 | `initialLoadDelay` | `3250` | Module load delay in ms. |
 | `retryDelay` | `2500`  |Delay to retry fetching data. |
+
+## Credits
+
+I would be remiss if I did not mention "Bropane" and his assistance. He prefers to remain anonymous.
+Also, I would like to thank Dr Mads Haahr, School of Computer Science and Statistics, Trinity College, Dublin 2, Ireland, for being kind enough to answer my email. Dr Haahr founded, and is the CEO of RANDOM.org where the numbers are generated.
