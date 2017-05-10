@@ -48,4 +48,5 @@ With no header and colored numbers aligned to the right
 ## Credits
 
 I would be remiss if I did not mention "Bropane" and his assistance. He prefers to remain anonymous.
+
 Also, I would like to thank Dr Mads Haahr, School of Computer Science and Statistics, Trinity College, Dublin 2, Ireland, for being kind enough to answer my email. Dr Haahr founded, and is the CEO of RANDOM.org where the numbers are generated.
