@@ -1,4 +1,4 @@
-   /* Magic Mirror
+        /* Magic Mirror
     * Module: MMM-Lottery
     *
     * By Mykle1
@@ -22,7 +22,7 @@
        },
 
        getStyles: function() {
-           return ["MMM-Lottery.css", "font-awesome.css"];
+           return ["MMM-Lottery.css"];
        },
 
        // Define start sequence.
@@ -34,13 +34,13 @@
 
            this.today = "";
            this.lottery = [];
-           this.url = "http://fortunecookieapi.herokuapp.com/v1/cookie?fortuneId=&lottoId=&lessonId=&limit=";
+           this.url = "https://www.random.org/integers/?num=6&min=1&max=69&col=1&base=10&format=plain&rnd=new";
            this.scheduleUpdate();
        },
 
        getDom: function() {
 
-           var lottery = this.lottery;
+          
            var lotto = this.lotto;
 
 
@@ -66,13 +66,8 @@
            top.classList.add("content");
 
            var des2 = document.createElement("p");
-           des2.classList.add("xsmall", "bright");
-           var numbers = lotto.numbers.sort(function(a, b) {
-               return a - b
-           });
-           var lotNumbers = numbers;
-           var showNumbers = lotNumbers.join(', ');
-           des2.innerHTML = showNumbers;
+           des2.className = "xsmall", "bright";
+           des2.innerHTML = lotto.numbers;
            top.appendChild(des2);
 
            wrapper.appendChild(top);
@@ -81,8 +76,7 @@
        },
 
        processLottery: function(data) {
-           this.lottery = data.lottery;
-           this.lotto = data.lotto;
+           this.lotto = data;
            this.loaded = true;
        },
 
