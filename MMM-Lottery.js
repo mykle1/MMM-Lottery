@@ -1,4 +1,4 @@
-        /* Magic Mirror
+   /* Magic Mirror
     * Module: MMM-Lottery
     *
     * By Mykle1
@@ -8,6 +8,7 @@
 
        // Module config defaults.
        defaults: {
+           mode: "6of69", // <-- US Powerball. See readme for your lottery parameters
            updateInterval: 5 * 60 * 1000, // 5 minutes
            fadeSpeed: 3000,
            initialLoadDelay: 3250, // ms seconds delay
@@ -34,13 +35,13 @@
 
            this.today = "";
            this.lottery = [];
-           this.url = "https://www.random.org/integers/?num=6&min=1&max=69&col=1&base=10&format=plain&rnd=new";
+           this.url = this.getUrl();
            this.scheduleUpdate();
        },
 
        getDom: function() {
 
-          
+
            var lotto = this.lotto;
 
 
@@ -68,11 +69,68 @@
            var des2 = document.createElement("p");
            des2.className = "xsmall", "bright";
            des2.innerHTML = lotto.numbers;
+
+
+           if (this.config.mode != '') {
+               this.url = this.config.mode;
+           }
+
            top.appendChild(des2);
 
            wrapper.appendChild(top);
+
            return wrapper;
 
+       },
+
+       getUrl: function() {
+           var url = null;
+           var mode = this.config.mode;
+
+
+           if (mode == "6of38") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=38&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of39") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=39&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of40") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=40&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of43") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=43&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of45") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=45&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of47") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=47&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of48") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=48&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of49") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=49&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of52") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=52&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of59") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=59&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of69") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=45&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "6of90") {
+               url = "https://www.random.org/integers/?num=6&min=1&max=90&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of35") {
+               url = "https://www.random.org/integers/?num=7&min=1&max=35&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of36") {
+               url = "https://www.random.org/integers/?num=7&min=1&max=36&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of37") {
+               url = "https://www.random.org/integers/?num=&min=1&max=37&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of40") {
+               url = "https://www.random.org/integers/?num=&min=1&max=40&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of49") {
+               url = "https://www.random.org/integers/?num=7&min=1&max=49&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "7of70") {
+               url = "https://www.random.org/integers/?num=7&min=1&max=70&col=1&base=10&format=plain&rnd=new";
+           } else if (mode == "10of90") {
+               url = "https://www.random.org/integers/?num=10&min=1&max=90&col=1&base=10&format=plain&rnd=new";
+           } else {
+               console.log("Error can't get Lottery url" + response.statusCode);
+           }
+
+           return url;
        },
 
        processLottery: function(data) {
