@@ -82,6 +82,19 @@
            return wrapper;
 
        },
+	   
+	   
+	   notificationReceived: function(notification, payload) {
+        if (notification === 'HIDE_LOTTERY') {
+            this.hide(1000);
+            this.updateDom(300);
+        }  else if (notification === 'SHOW_LOTTERY') {
+            this.show(1000);
+            this.updateDom(300);
+        }
+            
+    },
+	   
 
        getUrl: function() {
            var url = null;
